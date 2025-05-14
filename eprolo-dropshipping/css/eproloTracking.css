@@ -1,0 +1,200 @@
+.tracking-button{
+    background: #2271b1;
+    border-color: #2271b1;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: none;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 2.15384615;
+    min-height: 30px;
+    margin: 0;
+    padding: 0 10px;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+._tracking_nkd9j_19 {
+    padding: 16px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+._tracking_nkd9j_19 ._title_nkd9j_23 a:nth-child(2) {
+    color: #a00;
+    margin-left: 12px;
+}
+._content_nkd9j_38 {
+    background-color: #f6f6f6;
+    padding: 12px;
+    font-size: 14px;
+    line-height: 1.43;
+}
+._tracking_nkd9j_19 ._title_nkd9j_23 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: #5f5f5f;
+}
+._tracking_nkd9j_19 ._title_nkd9j_23 a {
+    font-size: 12px;
+}
+a {
+    cursor: pointer;
+    color: #2271b1;
+    transition: color .5s ease-in-out;
+}
+._number_nkd9j_45 {
+    margin-bottom: 2px;
+}
+._number_nkd9j_45>div:nth-child(1) {
+    flex-shrink: 0;
+    word-break: break-all;
+}
+._number_nkd9j_45>div:nth-child(1) strong {
+    font-weight: 600;
+    color: #3c434a;
+}
+._number_nkd9j_45>div:nth-child(2) a {
+    text-decoration: none;
+}
+.el-message {
+    min-width: 380px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #EBEEF5;
+    position: fixed;
+    left: 50%;
+    top: 20px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-color: #edf2fc;
+    -webkit-transition: opacity .3s, top .4s, -webkit-transform .4s;
+    transition: opacity .3s, top .4s, -webkit-transform .4s;
+    transition: opacity .3s, transform .4s, top .4s;
+    transition: opacity .3s, transform .4s, top .4s, -webkit-transform .4s;
+    padding: 15px 15px 15px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #f0f9eb;
+    border-color: #e1f3d8;
+    border-radius: 5px;
+    top: 40px;
+    z-index: 2000;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    position: fixed;
+}
+.el-message-error{
+    background-color: #fef0f0;
+    border-color: #fde2e2;
+}
+.el-message-error .Eprolo-task__icon{
+    background: #F56C6C;
+}
+.el-message-error .el-message__content{
+    color: #F56C6C;
+}
+.el-message__content {
+    padding: 0;
+    font-size: 14px;
+    line-height: 1;
+    margin: 0;
+    color: #67C23A;
+}
+.Eprolo-task__icon{
+    background-color:#67C23A;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    margin-right: 10px;
+}
+.Eprolo-task__icon svg {
+    fill: #fff;
+    position: relative;
+    top: 4px;
+    left: 5px;
+}
+.wcas-tracking-number-list li {
+    position: relative;
+    padding: 5px;
+    min-height: 50px;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+.wcas-tracking-number-list li:hover a.aftership_inline_tracking_delete {
+    display: block;
+}
+.Add-Tracking-Number{
+    text-align: center;
+    padding: 10px 0;
+}
+.form-field label{
+    font-size: 13px;
+    font-weight: 500;
+    padding: 9px 0 5px 0;
+    display: block;
+}
+.eprolo-tracking-button{
+    background: #2271b1;
+    border-color: #2271b1;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: none;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 2.15384615;
+    min-height: 30px;
+    margin: 0;
+    padding: 0 10px;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+.eprolo-Tracking-Number{
+    border-radius: 4px;
+    height: 31px;
+    background: #f6f7f7 !important;
+    font-size: 14px;
+    font-weight: 400;
+}
+._title_nkd9j_index{
+    font-size: 13px;
+    font-weight: 500;
+}
+a.aftership_inline_tracking_delete {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 11px;
+    color: #a00;
+}
+.eprolo-loading {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border: 2px solid rgba(0,0,0,.1);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

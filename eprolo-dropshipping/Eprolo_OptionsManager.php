@@ -170,7 +170,7 @@ class Eprolo_OptionsManager {
 			<ul class="nav nav-pills mb-3" id="Go_to_EPROLODIV" role="tablist" style="padding-top:10px;display: none;">
 				<p id="Go_to_EPROL_tip" style="width: 100%;">Your store has been successfully connected to your EPROLO account.
 				<br>
-				<br>"Consumer key is invalid" or "authentication_error":"Disconnect from EPROLO"->"Connect to EPROLO".
+				<br>PS:If prompted with "Consumer key is invalid" or "authentication_error", please refer to:
 				<a style="margin-top:10px;margin-bottom:20px" href="https://www.eprolo.com/project/fix-errors-when-installing-eprolo-to-woocommerce-store/" target="_blank">How to fix errors when installing EPROLO to WooCommerce store?</a>
 				</p>
 				<li class="nav-item">
@@ -207,7 +207,17 @@ class Eprolo_OptionsManager {
 				<br>
 			 </ul>
 		   </div>
-			
+		   <ul class="nav nav-pills mb-3"  role="tablist" style="padding-top:10px;margin-top:30px;" >
+			 <form method="post" action="options.php">
+            <?php settings_fields('eprolo_options'); ?>
+			<ul class="nav nav-pills mb-3"  role="tablist" style="padding-top:10px;margin-top:30px;" >
+				  <div style="width: 100%;">Enable the logistics tracking function.   <input style="margin-left: 30px;" type="checkbox" name="eprolo_enable_tracking" value="1" 
+				  <?php checked('1', get_option('eprolo_enable_tracking', '1')); ?> /></div>
+				 
+			</ul>
+            <?php submit_button(); ?>
+             </form>
+			</ul>	
 		<?php
 
 	}

@@ -2,7 +2,7 @@
 /*
    Plugin Name: EPROLO-Dropshipping
    Plugin URI: http://wordpress.org/extend/plugins/eprolo/
-   Version: 1.7.2
+   Version: 2.0.0
    Author: EPROLO
    Description: EPROLO Dropshipping and aliexpress importer
    Text Domain: EPROLO
@@ -58,6 +58,18 @@ eprolo_init( __FILE__ );
 
 //Define external AJAX interface
 require_once 'Eprolo_AJAX.php';
+// 添加配置选项
+function eprolo_add_settings() {
+    register_setting('eprolo_options', 'eprolo_enable_tracking', [
+        'default' => '1'
+    ]);
+}
+add_action('admin_init', 'eprolo_add_settings');
+
+// 修改跟踪文件加载逻辑
+if (get_option('eprolo_enable_tracking', '1') === '1') {
+    include_once plugin_dir_path(__FILE__) . 'Eprolo_tracking.php';
+}
 function eprolo_disconnect_init() {
 	$aPlugin = new Eprolo_AJAX();
 	$aPlugin->eprolo_disconnect();
@@ -70,8 +82,12 @@ function eprolo_reflsh_init() {
 	$aPlugin = new Eprolo_AJAX();
 	$aPlugin->eprolo_reflsh();
 }
+function eprolo_aftership_init() {
+	$aPlugin = new Eprolo_AJAX();
+	$aPlugin->handle_get_all_orders();
+}
 // Interface Join Action
+add_action('wp_ajax_aftership_get_all_orders','eprolo_aftership_init');
 add_action( 'wp_ajax_eprolo_disconnect', 'eprolo_disconnect_init' );
 add_action( 'wp_ajax_eprolo_connect_key', 'eprolo_connect_key_init' );
 add_action( 'wp_ajax_eprolo_reflsh', 'eprolo_reflsh_init' );
-
