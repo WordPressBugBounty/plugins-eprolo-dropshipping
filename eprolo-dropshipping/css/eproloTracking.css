@@ -132,7 +132,7 @@ a {
     box-sizing: border-box;
     margin-bottom: 0;
 }
-.wcas-tracking-number-list li:hover a.aftership_inline_tracking_delete {
+.wcas-tracking-number-list li:hover a.eprolo_inline_tracking_delete {
     display: block;
 }
 .Add-Tracking-Number{
@@ -176,7 +176,7 @@ a {
     font-size: 13px;
     font-weight: 500;
 }
-a.aftership_inline_tracking_delete {
+a.eprolo_inline_tracking_delete {
     display: none;
     position: absolute;
     top: 5px;

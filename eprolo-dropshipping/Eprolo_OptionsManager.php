@@ -211,7 +211,7 @@ class Eprolo_OptionsManager {
 			 <form method="post" action="options.php">
             <?php settings_fields('eprolo_options'); ?>
 			<ul class="nav nav-pills mb-3"  role="tablist" style="padding-top:10px;margin-top:30px;" >
-				  <div style="width: 100%;">Enable the logistics tracking function.   <input style="margin-left: 30px;" type="checkbox" name="eprolo_enable_tracking" value="1" 
+				  <div style="width: 100%;">Enable the logistics tracking function (EPROLO will also retain the shipping function after it is turned off).   <input style="margin-left: 30px;" type="checkbox" name="eprolo_enable_tracking" value="1" 
 				  <?php checked('1', get_option('eprolo_enable_tracking', '1')); ?> /></div>
 				 
 			</ul>

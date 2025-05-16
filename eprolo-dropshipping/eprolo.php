@@ -2,7 +2,7 @@
 /*
    Plugin Name: EPROLO-Dropshipping
    Plugin URI: http://wordpress.org/extend/plugins/eprolo/
-   Version: 2.0.0
+   Version: 2.1.0
    Author: EPROLO
    Description: EPROLO Dropshipping and aliexpress importer
    Text Domain: EPROLO
@@ -65,7 +65,7 @@ function eprolo_add_settings() {
     ]);
 }
 add_action('admin_init', 'eprolo_add_settings');
-
+include_once plugin_dir_path(__FILE__) . 'Eprolo_tracking_api.php';
 // 修改跟踪文件加载逻辑
 if (get_option('eprolo_enable_tracking', '1') === '1') {
     include_once plugin_dir_path(__FILE__) . 'Eprolo_tracking.php';
