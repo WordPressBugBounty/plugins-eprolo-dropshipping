@@ -113,8 +113,8 @@ class Eprolo_Actions_New_api {
         $tracking_number = isset($request_data['tracking_number']) ? trim($request_data['tracking_number']) : '';
         $tracking_link = isset($request_data['tracking_link']) ? $request_data['tracking_link'] : '';
         $eprolo_store_token_request = isset($request_data['eprolo_store_token']) ? $request_data['eprolo_store_token'] : '';
-        if (empty($courier_name) || empty($tracking_number)) {
-            return new WP_Error('invalid_params', 'Tracking name and number cannot be empty', array('status' => 200));
+        if (empty($tracking_number)) {
+            return new WP_Error('invalid_params', 'Tracking number cannot be empty', array('status' => 200));
         }
         if (strpos($courier_name, 'new packets') !== false) {
             $tracking_link = 'https://newpackets.com/';

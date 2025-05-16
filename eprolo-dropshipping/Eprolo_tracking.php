@@ -195,16 +195,17 @@ public function enqueue_scripts() {
      * 初始化
      */
     public function init() {
-        // 添加到WooCommerce订单状态列表
-        add_filter('wc_order_statuses', array($this, 'add_custom_order_statuses'));
         // 添加订单列表列
-        add_filter( 'manage_woocommerce_page_wc-orders_columns', array( $this, 'add_shipping_status_column' ), 99 );
-		add_action( 'manage_woocommerce_page_wc-orders_custom_column', array( $this, 'show_shipping_status_column' ), 10, 2 );
+         // WooCommerce 3.3+ 使用新的订单管理界面
+         add_filter('manage_woocommerce_page_wc-orders_columns', array($this, 'add_shipping_status_column'), 20);
+         add_action('manage_woocommerce_page_wc-orders_custom_column', array($this, 'show_shipping_status_column'), 10, 2);
+        // 旧版WooCommerce
+        add_filter('manage_edit-shop_order_columns', array($this, 'add_shipping_status_column'), 20);
+        add_action('manage_shop_order_posts_custom_column', array($this, 'show_shipping_status_column'), 10, 2);
+        
         add_action('add_meta_boxes', array($this, 'add_meta_box'));
         add_action('wp_ajax_eprolo_save_tracking_data', array($this, 'save_tracking_data'));
         add_action('wp_ajax_eprolo_get_order_info', array($this, 'get_order_info'));
-        // add_action('admin_enqueue_scripts', array($this, 'enqueue_scripts'));
-        // 删除物流信息
         add_action('wp_ajax_eprolo_delete_tracking', array($this, 'delete_tracking_data'));
     }
     // 跟新列表
@@ -251,30 +252,33 @@ public function delete_tracking_data() {
     }
 }
     /**
-     * 将自定义状态添加到WooCommerce订单状态列表
-     */
-    public function add_custom_order_statuses($order_statuses) {
-        $order_statuses['wc-shipped'] = 'Fulfilled';
-        return $order_statuses;
-    }
-    /**
  * 添加订单发货状态列
  */
 public function add_shipping_status_column($columns) {
-    $columns['woocommerce-automizely-eprolo-tracking'] = 'Eprolo Tracking';
-	return $columns;
+    // 确保列名唯一，避免与其他插件冲突
+    $columns['eprolo_tracking_status'] = __('Eprolo Tracking', 'eprolo');
+    return $columns;
 }
 
 /**
  * 显示订单发货状态
  */
 public function show_shipping_status_column( $column_name, $order ) {
-    if ( 'woocommerce-automizely-eprolo-tracking' === $column_name ) {
-        // echo $order;
-        // return;
-        $tracking_items = $order->get_meta( '_eprolo_tracking_items', true );
-        // 确保 $tracking_items 是数组
+    if ( 'eprolo_tracking_status' === $column_name ) {
+        // 如果 $order 是订单对象
+        if (is_a($order, 'WC_Order')) {
+            $order_obj = $order;
+        } 
+        // 如果 $order 是订单 ID
+        else {
+            $order_obj = wc_get_order($order);
+        }
+    
+        // 获取物流信息
+        $tracking_items = $order_obj->get_meta('_eprolo_tracking_items', true);
+
         $tracking_items = is_array($tracking_items) ? $tracking_items : [];
+
         $aplugin = new Eprolo_OptionsManager();
         wp_enqueue_script( 
             'startup', 
@@ -285,6 +289,7 @@ public function show_shipping_status_column( $column_name, $order ) {
         );
         wp_enqueue_style( 'custom', $aplugin->getUrl() . 'css/eproloTracking.css', '', $aplugin->get_eprolo_version(), 'all' );
         wp_localize_script( 'startup', 'ajax_startup', array( 'ajaxUrl' => admin_url( 'admin-ajax.php' ) ) );
+        
         if ( !empty($tracking_items) ) {
             echo '<ul class="wcas-tracking-number-list">';
             foreach ( $tracking_items as $tracking_item ) {
