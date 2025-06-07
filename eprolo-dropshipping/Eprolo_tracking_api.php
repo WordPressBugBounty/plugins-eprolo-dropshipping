@@ -152,6 +152,34 @@ class Eprolo_Actions_New_api {
         array_push($tracking_items, $tracking_item);
         // 保存快递信息到订单meta
         $order->update_meta_data('_eprolo_tracking_items', $tracking_items);
+
+        // 保存快递信息到WooCommerce订单
+        $wc_item                      = array();
+        $wc_item['tracking_provider']   = "australia-post";
+        $wc_item['custom_tracking_provider']   = "";
+        $wc_item['custom_tracking_link']   = "";
+        $wc_item['tracking_number']   = wc_clean(  $tracking_number  );
+        $wc_item['source']   = "edit_order";
+        $wc_item['tracking_product_code']   = "";
+        $wc_item['date_shipped']   = wc_clean( $order_id);
+        $wc_item['status_shipped']   = "1";
+        $wc_item['tracking_id']   =  md5( "{$tracking_item['provider_name']}-{$tracking_item['tracking_number']}" );
+        $wc_item['user_id']   = "1";
+        $wc_items = [];
+        if($order->get_meta('_wc_shipment_tracking_items')){
+            $wc_items = $order->get_meta('_wc_shipment_tracking_items', true);
+            // 检查tracking_number是否已存在
+            foreach($wc_items as $item) {
+                if($item['tracking_number'] === $tracking_number) {
+                    return new WP_Error('duplicate_tracking', 'This tracking number already exists.', array('status' => 200));
+                }
+            }
+        }
+        array_push($wc_items, $wc_item);
+        // 保存快递信息到订单meta
+        $order->update_meta_data('_wc_shipment_tracking_items', $wc_items);
+        // end保存快递信息到WooCommerce订单
+		
         $order->save();
         
         return $this->update_order_to_shipped($order_id,$eproloTracking_id);
