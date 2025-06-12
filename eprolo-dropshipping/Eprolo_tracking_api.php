@@ -109,15 +109,12 @@ class Eprolo_Actions_New_api {
         $request_body = $request->get_body();
         $request_data = json_decode($request_body, true);
         
-        $courier_name = isset($request_data['tracking_name']) ? trim($request_data['tracking_name']) : '';
+        $courier_name = isset($request_data['tracking_provider']) ? trim($request_data['tracking_provider']) : '';
         $tracking_number = isset($request_data['tracking_number']) ? trim($request_data['tracking_number']) : '';
         $tracking_link = isset($request_data['tracking_link']) ? $request_data['tracking_link'] : '';
         $eprolo_store_token_request = isset($request_data['eprolo_store_token']) ? $request_data['eprolo_store_token'] : '';
         if (empty($tracking_number)) {
             return new WP_Error('invalid_params', 'Tracking number cannot be empty', array('status' => 200));
-        }
-        if (strpos($courier_name, 'new packets') !== false) {
-            $tracking_link = 'https://newpackets.com/';
         }
         $order = wc_get_order($order_id);
         $eprolo_store_token = $aplugin->getOption( 'eprolo_store_token' );	
@@ -155,9 +152,13 @@ class Eprolo_Actions_New_api {
 
         // 保存快递信息到WooCommerce订单
         $wc_item                      = array();
-        $wc_item['tracking_provider']   = "australia-post";
+        $wc_item['tracking_provider']   = $courier_name;
         $wc_item['custom_tracking_provider']   = "";
         $wc_item['custom_tracking_link']   = "";
+        // 检查tracking_link ,根据条件跳转到不同的链接,默认跳转17track
+        if (empty($tracking_link)){
+            $wc_item['custom_tracking_link']   =  'https://t.17track.net/en#nums=' . $tracking_number;
+        }
         $wc_item['tracking_number']   = wc_clean(  $tracking_number  );
         $wc_item['source']   = "edit_order";
         $wc_item['tracking_product_code']   = "";

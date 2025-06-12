@@ -2,7 +2,7 @@
 /*
    Plugin Name: EPROLO-Dropshipping
    Plugin URI: http://wordpress.org/extend/plugins/eprolo/
-   Version: 2.2.0
+   Version: 2.3
    Author: EPROLO
    Description: EPROLO Dropshipping and aliexpress importer
    Text Domain: EPROLO
