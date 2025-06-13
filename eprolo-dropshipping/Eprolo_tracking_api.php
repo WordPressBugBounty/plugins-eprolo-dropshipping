@@ -154,7 +154,7 @@ class Eprolo_Actions_New_api {
         $wc_item                      = array();
         $wc_item['tracking_provider']   = $courier_name;
         $wc_item['custom_tracking_provider']   = "";
-        $wc_item['custom_tracking_link']   = "";
+        $wc_item['custom_tracking_link']   = $tracking_link;
         // 检查tracking_link ,根据条件跳转到不同的链接,默认跳转17track
         if (empty($tracking_link)){
             $wc_item['custom_tracking_link']   =  'https://t.17track.net/en#nums=' . $tracking_number;
@@ -162,7 +162,7 @@ class Eprolo_Actions_New_api {
         $wc_item['tracking_number']   = wc_clean(  $tracking_number  );
         $wc_item['source']   = "edit_order";
         $wc_item['tracking_product_code']   = "";
-        $wc_item['date_shipped']   = wc_clean( $order_id);
+        $wc_item['date_shipped']   = current_time('Y-m-d H:i:s');  // 改为当前日期时间戳
         $wc_item['status_shipped']   = "1";
         $wc_item['tracking_id']   =  md5( "{$tracking_item['provider_name']}-{$tracking_item['tracking_number']}" );
         $wc_item['user_id']   = "1";
