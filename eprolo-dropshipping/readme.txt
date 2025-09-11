@@ -1,52 +1,46 @@
-=== EPROLO Dropshipping===
-Contributors: EPROLO Dropshipping
+=== Inkedjoy-POD Dropshipping===
+Contributors: Inkedjoy-POD Dropshipping
 Tags: woocommerce, e-commerce, ecommerce, dropship, dropshipping, dropshipper, drop ship, drop shipping, drop shipper,AliExpress, AliExpress dropshipping, importer,supplier,china,Branding,product sourcing,print on demand,POD
 Requires at least: 4.4
-Tested up to: 5.9.3
+Tested up to: 6.8.2
 Requires PHP: 5.6
-Stable tag: 1.6.1
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-EPROLO dropshipping allows to import products from Aliexpress or EPROLO to wordpress, woocommerce in one click.
+Impressive Products & Price - Print On Demand Dropshipping.
 
 
 == Description ==
 ###Free Forever Dropshipping APP
-1.Import and sync products from EPROLO or AliExpress to your store.
-2.We will do product sourcing, warehousing, supply management, packing and shipping for you. Fulfill orders in bulk instead of one by one.
-3.Eprolo Express can deliver the package to your UK and US customer in 5-8 days.AU 7-9 days,CA 7-9 days. Europe Express will take around 8-12 days.
-4.Your brand / logo will be printed on the shipping label,scotch tape. Each package will be shipped under your brand.
+1.Ships from US and Aus to local customers, ships from China to Europe and North America with Express shipping, 5-10 days delivery.
+2.More than 1000 products: t-shirts, hoodies, sweatshirts, mugs, bags, home decors, shoes, accessories, and more products you have never seen.
+3.Inkedjoy provides more competitive price than others, you can earn more from every single order. Enjoy the higher profit margins.
 
 == Installation ==
 
-1. Install and activate "EPROLO" Plugin at wordpress.
-Before connect to EPROLO, the following conditions must be met:
+1. Install and activate "Inkedjoy" Plugin at wordpress.
+Before connect to Inkedjoy, the following conditions must be met:
 (1) WooCommerce plugin has been installed and activated;
-(2) Set permalinks to anything other than “Plain” in Settings > Permalinks;
+(2) Set permalinks to anything other than ��Plain�� in Settings > Permalinks;
 (3) Your website must be an SSL connection.
-2. Eprolo account already exists , you can get your own AUTH KEY from EPROLO-> My Account-> Woocommerce and "Connect with Auth Key",then click "Connect to EPROLO" and authorize.
-3. If you don`t have an EPROLO account, please click "Connect to EPROLO" and authorize.
-4. You can click on 'Enable the logistics tracking function' to cancel the shipping function that comes with EPROLO.
+2. Inkedjoy account already exists , you can get your own AUTH KEY from EPROLO-> My Account-> Woocommerce and "Connect with Auth Key",then click "Connect to Inkedjoy" and authorize.
 
 ###SUPPORT
-for all support requests, please use the contact form of the website https://eprolo.com or send an email to support@eprolo.com
+for all support requests, please use the contact form of the website https://inkedjoy.com or send an email to pod@eprolo.com
 
 
 ###Further Reading
 
 * [How to install EPROLO APP to your Woocommerce store? ](https://www.eprolo.com/project/install-eprolo-app-to-woocommerce-store)
-* [How to import products to your store with one click? ](https://www.eprolo.com/project/import-products-to-your-store-with-one-click)
-* [How to process and fulfill an order?](https://www.eprolo.com/project/order-fulfillment)
-* [Customize Branding](https://www.eprolo.com/branding)
-* [Shipping & Delivery](https://www.eprolo.com/project/shipping-methods)
+* [How to Create a 3D printing Product? ](https://www.eprolo.com/project/how-to-create-a-3d-printing-product/)
+* How to Use EPROLO Print on Demand?](https://www.eprolo.com/project/how-to-use-eprolo-print-on-demand/)
+* [Customize Branding](https://inkedjoy.com/branding-project)
 
 == Screenshots ==
 
 1. We help you to build your brand through customization, add logo, sticker, gift card,etc to your package.
-2. Super fast shipping
-3. Free Chrome Extension:"EPROLO - Aliexpress product importer"
-4. Import and sync products from EPROLO
-5. Import and sync products from AliExpress
-6. Push product to your store
-7. Fulfill orders in bulk
+2. More than 1000 products.
+3. Create a 3D printing Product.
+4. Create a 3D printing Product-Edit Background.
+5. Fulfill orders in bulk
