@@ -2,11 +2,13 @@
 /*
    Plugin Name: EPROLO-Dropshipping
    Plugin URI: http://wordpress.org/extend/plugins/eprolo/
-   Version: 2.3.1
+   Version: 2.4.2
    Author: EPROLO
    Description: EPROLO Dropshipping and aliexpress importer
-   Text Domain: EPROLO
+   Text Domain: eprolo
    Author URI:   https://www.eprolo.com
+   License: GPLv2 or later
+   License URI: https://www.gnu.org/licenses/gpl-2.0.html
   */
 
 //PHP minimum required version
@@ -71,18 +73,34 @@ if (get_option('eprolo_enable_tracking', '1') === '1') {
     include_once plugin_dir_path(__FILE__) . 'Eprolo_tracking.php';
 }
 function eprolo_disconnect_init() {
+    if (!current_user_can('edit_shop_orders')) {
+        wp_send_json_error(array('message' => 'You do not have permission to perform this action.'));
+        return;
+    }
 	$aPlugin = new Eprolo_AJAX();
 	$aPlugin->eprolo_disconnect();
 }
 function eprolo_connect_key_init() {
+    if (!current_user_can('edit_shop_orders')) {
+        wp_send_json_error(array('message' => 'You do not have permission to perform this action.'));
+        return;
+    }
 	 $aPlugin = new Eprolo_AJAX();
 	$aPlugin->eprolo_connect_key();
 }
 function eprolo_reflsh_init() {
+    if (!current_user_can('edit_shop_orders')) {
+        wp_send_json_error(array('message' => 'You do not have permission to perform this action.'));
+        return;
+    }
 	$aPlugin = new Eprolo_AJAX();
 	$aPlugin->eprolo_reflsh();
 }
 function eprolo_aftership_init() {
+    if (!current_user_can('edit_shop_orders')) {
+        wp_send_json_error(array('message' => 'You do not have permission to perform this action.'));
+        return;
+    }
 	$aPlugin = new Eprolo_AJAX();
 	$aPlugin->handle_get_all_orders();
 }

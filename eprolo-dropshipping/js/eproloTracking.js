@@ -20,6 +20,11 @@ function addTracking(element){
 }
 // 保存数据
 function saveTrackingData(element) {
+    // 添加权限检查
+    if (!window.eprolo_is_admin) {
+        messageAlert('You do not have permission to perform this action', 0);
+        return false;
+    }
     // Get the current order ID from WordPress admin
     const orderId = getCurrentOrderId();
     
@@ -172,6 +177,11 @@ function editTraking(element){
 }
 // 删除物流信息
 function confirmDeleteTracking(element,type=1) {
+    // 添加权限检查
+    if (!window.eprolo_is_admin) {
+        messageAlert('You do not have permission to perform this action', 0);
+        return false;
+    }
     if (confirm('Are you sure you want to delete this tracking information?')) {
         var trackingId = element.getAttribute('data-tracking-id');
         var orderId = element.getAttribute('data-order-id');
